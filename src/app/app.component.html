@@ -1,0 +1,52 @@
+<div  class="container">
+    <div class="jumbotron">
+        <h1 style="text-align:center">ReactiveForm</h1>
+      </div>
+
+<form  id ="group" [formGroup]="rFrom" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="Firstname">FirstName</label>
+        <input type="text" class="form-control" id="Firstname" 
+         formControlName="Firstname">
+      </div>
+        <div  class="error" *ngIf="rFrom.get('Firstname').hasError('required') && rFrom.get('Firstname').touched">
+          FirstName is required
+        </div>
+
+          <div class="form-group">
+          <label for="Lastname">LastName</label>
+          <input type="text" class="form-control" id="Lastname" 
+           formControlName="Lastname">
+        </div>
+          <div   class="error" *ngIf="rFrom.get('Lastname').hasError('required') && rFrom.get('Lastname').touched">
+            LastName is required
+          </div>
+          <div class="form-group">
+            <label for="street">street</label>
+            <input type="text" class="form-control" id="street" 
+             formControlName="street" placeholder="Name">
+          </div>
+            <div   class="error"  *ngIf="rFrom.get('street').hasError('required') && rFrom.get('street').touched">
+              Street is required
+            </div>
+            <div class="form-group">
+              <label for="zip">Zip</label>
+              <input type="number" class="form-control" id="zip" 
+               formControlName="zip" placeholder="zip">
+            </div>
+              <div   class="error"  *ngIf="rFrom.get('zip').hasError('required') && rFrom.get('zip').touched">
+                zip is required
+              </div>
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" 
+                 formControlName="state" placeholder="state">
+              </div>
+                <div   class="error"  *ngIf="rFrom.get('state').hasError('required') && rFrom.get('state').touched">
+                  state is required
+                </div>
+
+            <button class="btn btn-primary" [disabled]="!rFrom.valid">Sign up</button>
+</form>
+</div>
